@@ -4,6 +4,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:toan)
   end
+
   test "login with invalid credentials" do
     get login_path
     assert_template 'sessions/new'
