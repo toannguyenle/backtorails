@@ -6,7 +6,7 @@ User.create!(name:  "Toan",
 
 100.times do |n|
   name  = Faker::Name.name
-  email_name = name.split(" ")[0]
+  email_name = name.split(" ")[1]
   email = "#{email_name}@gmail.com"
   password = "password"
   User.create!(name:  name,
