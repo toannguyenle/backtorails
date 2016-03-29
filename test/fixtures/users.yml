@@ -1,0 +1,4 @@
+toan:
+  name: Toan Nguyen Le
+  email: toan@toan.com
+  password_digest: <%= User.digest('password') %>
