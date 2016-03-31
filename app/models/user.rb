@@ -41,6 +41,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Activates an account
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.now.zone)
+  end
+
+  # Sends activation email
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
   private
     # Converts email to lower case
     def downcase_email
