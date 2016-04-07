@@ -79,4 +79,15 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test "should follow and unfollow a user" do
+    toan = users(:toan)
+    ha = users(:ha)
+    assert_not toan.following?(ha)
+    toan.follow(ha)
+    assert toan.following?(ha)
+    assert ha.followers.include?(toan)
+    toan.unfollow(ha)
+    assert_not toan.following?(ha)
+  end
 end
