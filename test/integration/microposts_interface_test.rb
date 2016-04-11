@@ -48,4 +48,20 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     assert_match "1 micropost", response.body
   end
+
+  test "should post successfully after a blank post with image" do
+    log_in_as(@user)
+    get root_path
+    content = ""
+    picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
+    post microposts_path, micropost: { content: content, picture: picture }
+    assert_template 'static_page/home'
+    assert_select 'div#error_explanation'
+    content = "Here is something not blank"
+    assert_difference 'Micropost.count', 1 do
+      post microposts_path, micropost: { content: content, picture: picture }
+    end
+    follow_redirect!
+    assert_match content, response.body
+  end
 end

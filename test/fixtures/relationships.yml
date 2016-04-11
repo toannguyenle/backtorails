@@ -1,9 +1,19 @@
-# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Toan follows Bill and Anh
+# Toan has the following followers: Bill and Anh
 
-# one:
-#   follower_id: 1
-#   followed_id: 1
+one:
+  follower: toan
+  followed: bill
 
-# two:
-#   follower_id: 1
-#   followed_id: 1
+two:
+  follower: toan
+  followed: anh
+
+three:
+  follower: bill
+  followed: toan
+
+four:
+  follower: anh
+  followed: toan

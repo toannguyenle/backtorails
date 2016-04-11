@@ -90,4 +90,25 @@ class UserTest < ActiveSupport::TestCase
     toan.unfollow(ha)
     assert_not toan.following?(ha)
   end
+
+  test "feed should have the right posts" do
+    toan = users(:toan)
+    bill = users(:bill)
+    admin = users(:admin)
+
+    # Posts from followed user
+    bill.microposts.each do |post_following|
+      assert toan.feed.include?(post_following)
+    end
+
+    # Post from self
+    toan.microposts.each do |post_self|
+      assert toan.feed.include?(post_self)
+    end
+
+    # Posts from unfollowed user
+    admin.microposts.each do |post_unfollowed|
+      assert_not toan.feed.include?(post_unfollowed)
+    end
+  end
 end
