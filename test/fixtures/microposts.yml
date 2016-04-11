@@ -44,3 +44,13 @@ ocean:
   content: "The Ocean is our best thermostat"
   created_at: <%= 4.hours.ago %>
   user: admin
+
+car:
+  content: "I love car"
+  created_at: <%= 4.hours.ago %>
+  user: bill
+
+truck:
+  content: "I love trucks"
+  created_at: <%= 2.hours.ago %>
+  user: bill

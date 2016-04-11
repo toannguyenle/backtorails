@@ -20,6 +20,28 @@ ha:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+
+bill:
+  name: Bill
+  email: bill@gmail.com
+  password_digest: <%= User.digest('hahaha') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+anh:
+  name: Anne
+  email: anne@gmail.com
+  password_digest: <%= User.digest('hahaha') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+stranger:
+  name: Weirdal
+  email: stranger@gmail.com
+  password_digest: <%= User.digest('hahaha') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>
